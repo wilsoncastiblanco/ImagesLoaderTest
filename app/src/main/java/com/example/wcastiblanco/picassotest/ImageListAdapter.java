@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by w.castiblanco on 14/10/2016.
@@ -38,9 +38,12 @@ public class ImageListAdapter extends  RecyclerView.Adapter<ImageListAdapter.Vie
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        Picasso.with(context)
+
+        Glide
+                .with(context)
                 .load(imageUrls[position])
-                .fit() // will explain later
+                .centerCrop()
+                .crossFade()
                 .into(holder.imageView);
 
     }
