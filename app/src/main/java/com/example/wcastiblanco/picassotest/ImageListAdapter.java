@@ -1,6 +1,7 @@
 package com.example.wcastiblanco.picassotest;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * Created by w.castiblanco on 14/10/2016.
@@ -42,9 +41,11 @@ public class ImageListAdapter extends  RecyclerView.Adapter<ImageListAdapter.Vie
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
-        PicassoCache.getPicassoInstance(context).load(imageUrls[position]).into(holder.imageView);
 
 
+        Uri uri = Uri.parse(imageUrls[position]);
+
+        holder.imageView.setImageURI(uri);
 
     }
 
@@ -56,11 +57,11 @@ public class ImageListAdapter extends  RecyclerView.Adapter<ImageListAdapter.Vie
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public ImageView imageView;
+        public SimpleDraweeView imageView;
 
         public ViewHolder(View v) {
             super(v);
-            imageView = (ImageView) v.findViewById(R.id.imageView);
+            imageView = (SimpleDraweeView) v.findViewById(R.id.imageView);
         }
     }
 }
