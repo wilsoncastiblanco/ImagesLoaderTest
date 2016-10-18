@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
+
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         // specify an adapter (see also next example)
         ImageListAdapter mAdapter = new ImageListAdapter(MainActivity.this, eatFoodyImages);
+
         mRecyclerView.setAdapter(mAdapter);
     }
 }
